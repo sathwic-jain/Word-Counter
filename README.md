@@ -1,99 +1,104 @@
-# Word-Counter
+# Word Counter
 
-This README file explains the basic functionalities and usages for
-the "WordCounter.java" file, version 1.0.
+## Overview
 
-The program contains two java files:
-    WordCounter.java  //Contains the main method.
-    Output.java  //takes care of the output(to be printed).
+This Word Counter program, implemented in Java, serves as a practical exercise for CS5001 Object-Oriented Modelling, Design, and Programming. The application reads a text file, searches for specified words, and reports the word counts. The README explains the program structure, usage, additional features, and showcases sample outputs.
 
-The program does all the basic functionalities as specified by the 
-coursework. The program works in accordance with the principle of least surprise.
+## Project Structure
 
-Additional features implemented :
+The project consists of two Java files:
+- `WordCounter.java`: Contains the main method and the primary functionality.
+- `Output.java`: Manages output printing.
 
----- COMPILE AND RUN ON THE COMMAND LINE ----
+## Features
 
-There are two usage cases for this program:
+- **Command-Line Usage:**
+  - Run for a single file and search term:
+    ```
+    java WordCounter file_directory searchterm
+    ```
 
-        1) java WordCounter file_directory searchterms
+  - Run for multiple files and their respective search terms:
+    ```
+    java WordCounter file_directory1 search_terms_for_1 ! file_directory2 search_terms_for_2
+    ```
 
-        2) java WordCounter file_directory1 search_terms_for_1 ! file_directory2 search_terms_for_2
+- **Error Handling:**
+  - Displays a usage message and file not found error when arguments are missing or the specified file doesn't exist.
 
-The program can be run for a single file and its searchterms, and also for multiple files and
-their searchterms. Use ! as a separator after a set of file_directories and it's respective 
-searchterms. The results are printed in the order of the files.
- 
-An additional error term is thrown that is not specified in the coursework:
- 
-Case: When the user enters just a searchword first instead of a file directory, an error stating
-the usage and incorrectness is thrown:
+- **Additional Features:**
+  - Error message when the user enters a search word without a file directory.
+  - Results are printed in the order of the files.
+  
+## Running the Program
 
-    > java WordCounter Jamie
-	
-      Usage: java WordCounter <filename> <searchTerm>
-      File not found: Jamie
+1. **Setup Environment**: Ensure Java is installed.
 
-A sample output for the program :
+2. **Clone Repository**:
+   ```
+   git clone https://github.com/yourusername/Word-Counter.git
+   cd Word-Counter
+   ```
 
-1.
-    >java WordCounter pride-and-prejudice.txt is
-    
-     The word 'is' appears 831 times.
-2.
-    >java WordCounter pride-and-prejudice.txt is and
- 
-     |-------|-------|
-     | WORD  | COUNT |
-     |-------|-------|
-     | is    |   831 |
-     | and   |  3434 |
-     |-------|-------|
-     | TOTAL |  4265 |
-     |-------|-------|
+3. **Run the Program**:
+   ```
+   javac WordCounter.java
+   java WordCounter file_directory searchterm
+   ```
 
-3.
-    >java WordCounter pride-and-prejudice.txt is ! a-tale-of-two-cities.txt is
+4. **Check Results**: Find the output predictions in the generated `Y_test.csv` file.
 
-    Case : 'pride-and-prejudice.txt' :
-    The word 'is' appears 831 times.
-    Case : 'a-tale-of-two-cities.txt' :
-    The word 'is' appears 768 times.
+## Sample Outputs
 
-4.
-    >java WordCounter pride-and-prejudice.txt is ! a-tale-of-two-cities.txt is are
+1. Run for a single file and search term:
+   ```
+   java WordCounter pride-and-prejudice.txt is
+   ```
+   Output:
+   ```
+   The word 'is' appears 831 times.
+   ```
 
+2. Run for multiple files and their respective search terms:
+   ```
+   java WordCounter pride-and-prejudice.txt is ! a-tale-of-two-cities.txt is
+   ```
+   Output:
+   ```
+   Case : 'pride-and-prejudice.txt' :
+   The word 'is' appears 831 times.
+   Case : 'a-tale-of-two-cities.txt' :
+   The word 'is' appears 768 times.
+   ```
 
-    The word 'is' appears 831 times.
-    |-------|-------|
-    | WORD  | COUNT |
-    |-------|-------|
-    | is    |   768 |
-    | are   |   299 |
-    |-------|-------|
-    | TOTAL |  1067 |
-    |-------|-------|
+3. Run for multiple files and multiple search terms:
+   ```
+   java WordCounter pride-and-prejudice.txt is are ! a-tale-of-two-cities.txt is are
+   ```
+   Output:
+   ```
+   Case : 'pride-and-prejudice.txt' :
+   |-------|-------|
+   | WORD  | COUNT |
+   |-------|-------|
+   | is    |   831 |
+   | are   |   322 |
+   |-------|-------|
+   | TOTAL |  1153 |
+   |-------|-------|
+   Case : 'a-tale-of-two-cities.txt' :
+   |-------|-------|
+   | WORD  | COUNT |
+   |-------|-------|
+   | is    |   768 |
+   | are   |   299 |
+   |-------|-------|
+   | TOTAL |  1067 |
+   |-------|-------|
+   ```
 
-5.
+## Report Overview
 
-    > java WordCounter pride-and-prejudice.txt is are ! a-tale-of-two-cities.txt is are
+The project includes a detailed report in the file `CS5001-p1-wordcounter/Report.pdf`. The report covers essential steps, models used, their performance, and critical insights.
 
-    Case : 'pride-and-prejudice.txt' :
-    |-------|-------|
-    | WORD  | COUNT |
-    |-------|-------|
-    | is    |   831 |
-    | are   |   322 |
-    |-------|-------|
-    | TOTAL |  1153 |
-    |-------|-------|
-    Case : 'a-tale-of-two-cities.txt' :
-    |-------|-------|
-    | WORD  | COUNT |
-    |-------|-------|
-    | is    |   768 |
-    | are   |   299 |
-    |-------|-------|
-    | TOTAL |  1067 |
-    |-------|-------|
-
+For a deeper understanding of the project methodology, detailed steps, and in-depth results, please refer to the comprehensive report in the included `Report.pdf` file.
